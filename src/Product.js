@@ -1,22 +1,29 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { addToCart, first } from './action/productAction';
+import fetchProduct from './asycaction/productasycAction';
 
-export default function Product() {
+const mapStateToProps = (state) => ({
 
-   const produ = useSelector(y=>y.product);
+  data : state.product
+})
 
-   const dis = useDispatch();
+
+
+ function Product({data,dispatch}) {
+
+  //  const produ = useSelector(y=>y.product);
+
+  //  const dis = useDispatch();
 
     useEffect(()=> {
 
-        fetch("https://fakestoreapi.com/products").then(y=>y.json())
-        .then(y=> {
+       
 
-            dis(first(y))
+      dispatch(fetchProduct("https://fakestoreapi.com/products"))
 
-        })
+        
 
 
     },[])
@@ -24,15 +31,15 @@ export default function Product() {
     const handleAddToCart = (value)=> {
 
 
-      dis(addToCart(value));
+      dispatch(addToCart(value));
     }
 
-    console.log(produ);
+    console.log(data);
   return (
     <div className='row'>
 
       {
-        produ.data.map((value)=>{
+        data.data.map((value)=>{
 
           return ( 
             <div className='col-4'>
@@ -56,3 +63,5 @@ export default function Product() {
     </div>
   )
 }
+
+export default connect(mapStateToProps)(Product)

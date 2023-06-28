@@ -7,15 +7,19 @@ import store from './store/store';
 import Counter from './Counter';
 import Product from './Product';
 import ProHeader from './ProHeader';
+import UserInfo from './UserInfo';
+import MyPost from './MyPost';
+import UserUserFetch from './UserUserFetch';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
 
 
-          <ProHeader/>
+        
+          <UserUserFetch/>
 
-          <Product/>
+          
       </Provider>
   </React.StrictMode>,
   document.getElementById('root')
