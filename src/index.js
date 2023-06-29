@@ -10,6 +10,8 @@ import ProHeader from './ProHeader';
 import UserInfo from './UserInfo';
 import MyPost from './MyPost';
 import UserUserFetch from './UserUserFetch';
+import PostData from './PostData';
+import MyUseReducer from './MyUseReducer';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,7 +19,7 @@ ReactDOM.render(
 
 
         
-          <UserUserFetch/>
+          <MyUseReducer/>
 
           
       </Provider>

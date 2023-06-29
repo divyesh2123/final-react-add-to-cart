@@ -19,7 +19,7 @@ export default function Counter() {
 
   const incr = ()=> {
 
-    dis(Incr())
+    dis({type:'INC_ASYC'})
 
   }
 
